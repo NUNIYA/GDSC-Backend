@@ -60,12 +60,13 @@ h1 {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+    text-align: center;
 }
 
 .movie img {
     max-width: 100%;
     height: auto;
+    margin-bottom: 10px;
 }
 
 #movieDetails {
@@ -80,4 +81,20 @@ h1 {
     max-width: 300px;
     height: auto;
     margin-bottom: 20px;
+}
+.details-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.details-button:hover {
+    background-color: #45a049;
 }

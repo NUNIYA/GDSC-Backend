@@ -39,11 +39,11 @@ function displaySearchResults(movies) {
         const movieElement = document.createElement('div');
         movieElement.classList.add('movie');
         movieElement.innerHTML = `
-            <img src="${movie.Poster}" alt="${movie.Title} Poster">
+            <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title} Poster">
             <h3>${movie.Title}</h3>
-            <p>${movie.Year}</p>
+            <button class="details-button">View Details</button>
         `;
-        movieElement.addEventListener('click', () => getMovieDetails(movie.imdbID));
+        movieElement.querySelector('.details-button').addEventListener('click', () => getMovieDetails(movie.imdbID));
         searchResults.appendChild(movieElement);
     });
 }
@@ -71,10 +71,13 @@ async function getMovieDetails(imdbID) {
 function displayMovieDetails(movie) {
     movieDetails.innerHTML = `
         <h2>${movie.Title}</h2>
-        <img src="${movie.Poster}" alt="${movie.Title} Poster">
+        <img src="${movie.Poster !== 'N/A' ? movie.Poster : 'placeholder.jpg'}" alt="${movie.Title} Poster">
         <p><strong>Release Date:</strong> ${movie.Released}</p>
         <p><strong>Genre:</strong> ${movie.Genre}</p>
         <p><strong>Plot:</strong> ${movie.Plot}</p>
+        <p><strong>Director:</strong> ${movie.Director}</p>
+        <p><strong>Actors:</strong> ${movie.Actors}</p>
+        <p><strong>IMDb Rating:</strong> ${movie.imdbRating}</p>
     `;
     movieDetails.classList.remove('hidden');
 }
@@ -95,6 +98,7 @@ function showError(message) {
 function clearResults() {
     searchResults.innerHTML = '';
     errorMessage.classList.add('hidden');
+    movieDetails.classList.add('hidden');
 }
 
 function clearMovieDetails() {

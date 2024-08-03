@@ -1,4 +1,4 @@
-// Replace 'YOUR_API_KEY' with your actual OMDb API key
+
 const API_KEY = '3024fcc8';
 const API_URL = 'http://www.omdbapi.com/';
 
